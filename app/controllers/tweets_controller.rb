@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
 
   def index
-    @tweets = Tweet.order("created_at DESC")
+    @tweets = Tweet.page(params[:page]).per(5).order("created_at DESC")
   end
 
   def new
@@ -13,12 +13,23 @@ class TweetsController < ApplicationController
   end
 
   def show
+    @tweet = Tweet.find(params[:id])
   end
 
   def destroy
+    @tweet = Tweet.find(params[:id])
+    @tweet.destroy if @tweet.user_id == current_user.id
   end
 
   def update
+    tweet = Tweet.find(params[:id])
+    if tweet.user_id == current_user.id
+      tweet.update(tweet_params)
+    end
+  end
+
+  def edit
+    @tweet = Tweet.find(params[:id])
   end
 
   private
