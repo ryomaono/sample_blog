@@ -6,7 +6,6 @@
         <p><%= tweet.text %></p>
       </div>
       <div class="card-action">
-        <%= link_to "SHOW", "/tweets/#{tweet.id}", class: "waves-effect waves-light btn" %>
         <%= link_to "EDIT", "/tweets/#{tweet.id}/edit", class: "waves-effect waves-light btn" %>
         <%= link_to "DELETE", "/tweets/#{tweet.id}", method: :delete, class: "waves-effect waves-light btn" %>
       </div>
