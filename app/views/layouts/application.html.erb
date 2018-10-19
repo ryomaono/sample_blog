@@ -32,13 +32,13 @@
           </li>
         <% end %>
         <li>
-          <%= link_to "Signin", new_user_session_path, class: 'get' %>
+          <%= link_to "サインイン", new_user_session_path, class: 'get' %>
         </li>
         <li>
-          <%= link_to "Signout", destroy_user_session_path, method: :delete %>
+          <%= link_to " sign out", destroy_user_session_path, method: :delete %>
         </li>
         <li>
-          <%= link_to "New", new_tweet_path, class: 'post' %>
+          <%= link_to "投稿する", new_tweet_path, class: 'post' %>
         </li>
       </ul>
     </div>
